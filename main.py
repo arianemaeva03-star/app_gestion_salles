@@ -1,5 +1,6 @@
 from Data.dao_salle import DataSalle
 from models.salle import Salle
+import mysql.connector
 dao=DataSalle()
 try:
     con = dao.get_connection()
@@ -24,6 +25,10 @@ try:
     print(f"la salle {s4.code} ajoutée")
 except Exception as e:
     print("pas d'insertion", e)
+
+print("\n")
+dao.delete_salle("C401")
+print(f" la salle C401 a ete supprimer")
 
 
 
