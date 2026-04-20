@@ -38,4 +38,27 @@ class DataSalle:
         con.commit()
         crs.close()
         con.close()
-
+    def get_salle(self, code):
+        con = self.get_connection()
+        crs = con.cursor()
+        cursor.execute("select * from Salle where code = %s", (code,))
+        row = cursor.fetchone()
+        con.commit()
+        crs.close()
+        con.close()
+        if row:
+            return Salle(row)
+        else:
+            return None
+    def get_salles(self):
+        con = self.get_connection()
+        crs = con.cursor()
+        cursor.execute("select * from Salle")
+        results = cursor.fetchall()
+        salles = []
+        for row in results:
+            salles.append(Salle(row))
+        con.commit()
+        crs.close()
+        con.close()
+        return salles
