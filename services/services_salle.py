@@ -19,7 +19,7 @@ class ServiceSalle:
 
     def modifier_salle(self, salle):
         if not salle.code or not salle.libelle or not salle.type or not salle.capacite:
-            print("données pas complete")
+            print("données incomplet")
             return False
         if int(salle.capacite) < 1:
             print("erreur capacité invalide ")

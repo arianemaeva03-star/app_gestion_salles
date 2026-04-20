@@ -1,5 +1,6 @@
 from Data.dao_salle import DataSalle
 from models.salle import Salle
+from services.services_salle import ServiceSalle
 import mysql.connector
 dao=DataSalle()
 try:
@@ -35,11 +36,10 @@ s4_mod=Salle("C314", "aide_sociale" , "auditaurium", 80)
 dao.update_salle(s4_mod)
 print(f" la salle C314 a ete modifiée")
 
-from services.services_salle import ServiceSalle
-from models.salle import Salle
 service = ServiceSalle()
-s5= Salle("C255", "Ingenierie" , "test", 50)
-print(service.ajouter_salle(s5))
+salles=service.recuperer_salles()
+if salles:
+    for s in salles:
 
 s5.capacite = 100
 print(service.modifier_salle(s5))

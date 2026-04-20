@@ -1,7 +1,6 @@
 import json
 import mysql.connector
 
-
 from models.salle import Salle
 
 class DataSalle:
@@ -15,7 +14,7 @@ class DataSalle:
     def insert_salle(self, salle):
         con = self.get_connection()
         crs = con.cursor()
-        crs.execute("""insert into Salle values(%s,%s,%s,%s)""",
+        crs.execute("insert into Salle values(%s,%s,%s,%s)",
                     (salle.code, salle.libelle, salle.type, salle.capacite)
                     )
         con.commit()
@@ -34,14 +33,14 @@ class DataSalle:
     def delete_salle(self, code):
         con = self.get_connection()
         crs = con.cursor()
-        crs.execute("DELETE FROM Salle WHERE code = %s", (code,))
+        crs.execute("DELETE FROM salle WHERE code = %s", (code,))
         con.commit()
         crs.close()
         con.close()
     def get_salle(self, code):
         con = self.get_connection()
         crs = con.cursor()
-        crs.execute("select * from Salle where code = %s", (code,))
+        crs.execute("select * from salle where code = %s", (code,))
         row = crs.fetchone()
         con.commit()
         crs.close()
