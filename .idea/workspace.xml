@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5d14133-84ac-4150-95fb-475602be8d7a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/services_salle.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/services_salle.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +32,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.dao_salle.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.services_salle.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
