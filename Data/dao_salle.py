@@ -15,7 +15,7 @@ class DataSalle:
     def insert_salle(self, salle):
         con = self.get_connection()
         crs = con.cursor()
-        crs.execute("insert into Salle values(%s,%s,%s,%s)",
+        crs.execute("""insert into Salle values(%s,%s,%s,%s)""",
                     (salle.code, salle.libelle, salle.type, salle.capacite)
                     )
         con.commit()
