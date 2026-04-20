@@ -39,7 +39,19 @@ from services.services_salle import ServiceSalle
 from models.salle import Salle
 service = ServiceSalle()
 s2= Salle("C234", "medecine" , "laboratoire", 25)
-print(service.ajouter_salle(s1))
+print(service.ajouter_salle(s2))
+
+s2.capacite = 100
+print(service.modifier_salle(s2))
+
+liste = service.recuperer_salles()
+for s in liste:
+    s.afficher_infos()
+s = service.rechercher_salle("C452")
+if s:
+    s.afficher_infos()
+
+service.supprimer_salle("C234")
 
 
 
