@@ -11,26 +11,33 @@ class ViewSalle(ctk.CTk):
 
         self.frame_InfoSalle = ctk.CTkFrame(self)
         self.frame_InfoSalle.pack(pady=10, padx=10)
-
         self.label_code = ctk.CTkLabel(self.frame_InfoSalle, text="Code:")
         self.label_code.grid(row=0, column=0, pady=5, padx=5)
         self.entry_code = ctk.CTkEntry(self.frame_InfoSalle)
         self.entry_code.grid(row=0, column=1, pady=5, padx=5)
-
         self.label_libelle = ctk.CTkLabel(self.frame_InfoSalle, text="Libellé:")
         self.label_libelle.grid(row=1, column=0, pady=5, padx=5)
         self.entry_libelle = ctk.CTkEntry(self.frame_InfoSalle)
         self.entry_libelle.grid(row=1, column=1, pady=5, padx=5)
-
         self.label_type = ctk.CTkLabel(self.frame_InfoSalle, text="Type:")
         self.label_type.grid(row=2, column=0, pady=5, padx=5)
         self.entry_type = ctk.CTkEntry(self.frame_InfoSalle)
         self.entry_type.grid(row=2, column=1, pady=5, padx=5)
-
         self.label_capacite = ctk.CTkLabel(self.frame_InfoSalle, text="Capacité:")
         self.label_capacite.grid(row=3, column=0, pady=5, padx=5)
         self.entry_capacite = ctk.CTkEntry(self.frame_InfoSalle)
         self.entry_capacite.grid(row=3, column=1, pady=5, padx=5)
+
+        self.frame_Actions = ctk.CTkFrame(self)
+        self.frame_Actions.pack(pady=10)
+        self.btn_ajouter = ctk.CTkButton(self.frame_Actions, text="Ajouter", command=self.ajouter_salle)
+        self.btn_ajouter.grid(row=0, column=0, pady=10, padx=10)
+        self.btn_modifier = ctk.CTkButton(self.frame_Actions, text="Modifier", command=self.modifier_salle)
+        self.btn_modifier.grid(row=0, column=1, pady=10, padx=10)
+        self.btn_supprimer = ctk.CTkButton(self.frame_Actions, text="Supprimer", command=self.supprimer_salle)
+        self.btn_supprimer.grid(row=0, column=2, pady=10, padx=10)
+        self.btn_rechercher = ctk.CTkButton(self.frame_Actions, text="Rechercher", command=self.rechercher_salle)
+        self.btn_rechercher.grid(row=0, column=3, pady=10, padx=10)
 
     def ajouter_salle(self):
         s = Salle(
