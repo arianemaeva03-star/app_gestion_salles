@@ -22,3 +22,12 @@ class DataSalle:
         crs.close()
         con.close()
 
+    def update_salle(self, salle):
+        con = self.get_connection()
+        crs = con.cursor()
+        crs.execute=("Update Salle SET libelle=%s, type=%s, capacite=%s where code=%s",
+                  (salle.code, salle.libelle, salle.type, salle.capacite)
+                     )
+        con.commit()
+        crs.close()
+        con.close()
