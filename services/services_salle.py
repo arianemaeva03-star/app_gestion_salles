@@ -31,13 +31,13 @@ class ServiceSalle:
 
     def supprimer_salle(self, code):
         self.dao_salle.delete_salle(code)
-        print(f"la salle avec le code {code} est supprimée")
+        #print(f"la salle avec le code {code} est supprimée")
 
-    def rechercher_salle(self, code):
+    def rechercher_salle(self,code):
         if code:
-            salle= self.dao_salle.update_salle(code)
+            salle= self.dao_salle.get_salle(code)
             if salle:
-               print("la salle avec le code {code} a ete trouvee")
+               print(f"la salle avec le code {code} a ete trouvee")
             else:
                print("la salle nexiste pas erreur de code")
                return None

@@ -2,6 +2,7 @@ from Data.dao_salle import DataSalle
 from models.salle import Salle
 from services.services_salle import ServiceSalle
 import mysql.connector
+'''
 dao=DataSalle()
 try:
     con = dao.get_connection()
@@ -36,30 +37,60 @@ s4_mod=Salle("C314", "aide_sociale" , "auditaurium", 80)
 dao.update_salle(s4_mod)
 print(f" la salle C314 a ete modifiée")
 
+print("\n")
+recherche =dao.get_salle("C455")
+if recherche:
+    print("la salle C455 a ete trouve ")
+    print(f"ses informations sont:" )
+    recherche.afficher_infos()
+else:
+    print("la salle C455 n' exixte pas")  
+
+print("\n Liste des salles")     
+salles = dao.get_salles()
+for salle in salles:
+    salle.afficher_infos() 
+'''
 service = ServiceSalle()
-salles=service.recuperer_salles()
-if salles:
-    for s in salles:
 
-s5.capacite = 100
-print(service.modifier_salle(s5))
-
-liste = service.recuperer_salles()
-for s in liste:
-    s.afficher_info()
-s = service.rechercher_salle("C452")
-if s:
+print("\n1. Liste des salles")
+salles = service.recuperer_salles()
+for s in salles:
     s.afficher_infos()
+s6 = Salle("C304","Appui tech","Laboratoire",35)
+print("\n2. Ajouter salle")
+#service.ajouter_salle(s6)
+#print(message)
+print("\n3. Modification salle C303")
+salle = service.rechercher_salle("C303")
+if salle:
+    salle.capacite= 50
+    salle.libelle = "chimie"
+    salle.type = "cours"
+    service.modifier_salle(salle)
+    print("la salle la salle C303 a ete modifie ")
+print("\n4. Suppression C485")
+if service.rechercher_salle("C485"):
+    service.supprimer_salle("C485")
+    #print("Salle supprimée")
+#else:
+#    print("Salle inexistante")
+print("\n5. Recherche C404")
+recherche = service.rechercher_salle("C404")
 
-service.supprimer_salle("C255")
+if recherche:
+    recherche.afficher_infos()
+else:
+    print("Salle non trouvée")
+print("\nListe finale :")
+salles = service.recuperer_salles()
+for s in salles:
+    s.afficher_infos()
 
 from views.view_salle import ViewSalle
 
 app = ViewSalle()
 app.mainloop()
-
-
-
 
 
 

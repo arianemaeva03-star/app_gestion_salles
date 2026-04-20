@@ -34,6 +34,7 @@ class DataSalle:
         con = self.get_connection()
         crs = con.cursor()
         crs.execute("DELETE FROM salle WHERE code = %s", (code,))
+        print(f"la salle avec le code {code} est supprimée")
         con.commit()
         crs.close()
         con.close()
