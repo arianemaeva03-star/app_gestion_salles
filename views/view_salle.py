@@ -47,3 +47,13 @@ class ViewSalle(ctk.CTk):
         )
         self.service_salle.ajouter_salle(s)
         self.lister_salles()
+
+    def modifier_salle(self):
+        s = Salle(
+            self.entry_code.get(),
+            self.entry_libelle.get(),
+            self.entry_type.get(),
+            int(self.entry_capacite.get())
+        )
+        self.service_salle.modifier_salle(s)
+        self.lister_salles()
