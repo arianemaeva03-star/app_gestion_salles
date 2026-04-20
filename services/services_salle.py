@@ -1,4 +1,5 @@
 from Data.dao_salle import DataSalle
+from models.salle import Salle
 
 class ServiceSalle:
     def __init__(self):
@@ -33,7 +34,13 @@ class ServiceSalle:
         print(f"la salle avec le code {code} est supprimée")
 
     def rechercher_salle(self, code):
-        return self.dao_salle.get_salle(code)
-        print(f"la salle avec le code {code} a ete trouvée")
+        if code:
+            salle= self.dao_salle.update_salle(code)
+            if salle:
+               print("la salle avec le code {code} a ete trouvee")
+            else:
+               print("la salle nexiste pas erreur de code")
+               return None
 
-
+    def recuperer_salles(self):
+        return self.dao_salle.get_salles()
