@@ -79,3 +79,4 @@ class ViewSalle(ctk.CTk):
         liste = self.service_salle.recuperer_salles()
         for s in liste:
             self.treeList.insert("", "end", values=(s.code, s.libelle, s.type, s.capacite))
+

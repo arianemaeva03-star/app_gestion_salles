@@ -38,21 +38,25 @@ print(f" la salle C314 a ete modifiée")
 from services.services_salle import ServiceSalle
 from models.salle import Salle
 service = ServiceSalle()
-s2= Salle("C234", "medecine" , "laboratoire", 25)
-print(service.ajouter_salle(s2))
+s5= Salle("C255", "Ingenierie" , "test", 50)
+print(service.ajouter_salle(s5))
 
-s2.capacite = 100
-print(service.modifier_salle(s2))
+s5.capacite = 100
+print(service.modifier_salle(s5))
 
 liste = service.recuperer_salles()
 for s in liste:
-    s.afficher_infos()
+    s.afficher_info()
 s = service.rechercher_salle("C452")
 if s:
     s.afficher_infos()
 
-service.supprimer_salle("C234")
+service.supprimer_salle("C255")
 
+from views.view_salle import ViewSalle
+
+app = ViewSalle()
+app.mainloop()
 
 
 

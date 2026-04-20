@@ -47,7 +47,7 @@ class DataSalle:
         crs.close()
         con.close()
         if row:
-            return Salle(row)
+            return Salle(*row)
         else:
             return None
     def get_salles(self):
@@ -57,7 +57,7 @@ class DataSalle:
         results = crs.fetchall()
         salles = []
         for row in results:
-            salles.append(Salle(row))
+            salles.append(Salle(*row))
         con.commit()
         crs.close()
         con.close()
